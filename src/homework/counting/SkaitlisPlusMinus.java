@@ -100,6 +100,7 @@ public class SkaitlisPlusMinus extends javax.swing.JFrame {
         int intSk = Integer.parseInt(strSk);
         int sum;
         sum = intSk + 1;
+        //1
 //        
 //        tfSkaitlis.setText(Integer.toString(sum));
         tfSkaitlis.setText(String.valueOf(sum));
