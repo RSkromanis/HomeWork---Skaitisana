@@ -26,7 +26,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jTextField1" pref="145" max="32767" attributes="0"/>
+                  <Component id="tfIevadietSummu" pref="145" max="32767" attributes="0"/>
                   <Component id="tfKomisija" max="32767" attributes="0"/>
                   <Component id="tfSumma" max="32767" attributes="0"/>
               </Group>
@@ -34,7 +34,7 @@
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="tfInput" pref="85" max="32767" attributes="0"/>
                   <Component id="tfPercentage" max="32767" attributes="0"/>
-                  <Component id="btnOutput" alignment="0" max="32767" attributes="0"/>
+                  <Component id="tfOutput" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="154" max="-2" attributes="0"/>
           </Group>
@@ -45,7 +45,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfIevadietSummu" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="tfInput" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -55,7 +55,7 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnOutput" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                  <Component id="tfOutput" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                   <Component id="tfSumma" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="165" max="32767" attributes="0"/>
@@ -71,8 +71,11 @@
         </Property>
         <Property name="text" type="java.lang.String" value="0"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfInputActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JTextField" name="tfIevadietSummu">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
         <Property name="text" type="java.lang.String" value="Ievadiet summu EUR : "/>
@@ -90,10 +93,10 @@
     <Component class="javax.swing.JTextField" name="tfKomisija">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
-        <Property name="text" type="java.lang.String" value="Komisijas maksa 1% :"/>
+        <Property name="text" type="java.lang.String" value="Komisijas maksa 1% (EUR) :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="btnOutput">
+    <Component class="javax.swing.JTextField" name="tfOutput">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -101,6 +104,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="0"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfOutputActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="tfSumma">
       <Properties>

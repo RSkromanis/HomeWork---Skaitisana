@@ -28,30 +28,40 @@ public class ValutasMainaKabata extends javax.swing.JFrame {
     private void initComponents() {
 
         tfInput = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
+        tfIevadietSummu = new javax.swing.JTextField();
         tfPercentage = new javax.swing.JTextField();
         tfKomisija = new javax.swing.JTextField();
-        btnOutput = new javax.swing.JTextField();
+        tfOutput = new javax.swing.JTextField();
         tfSumma = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         tfInput.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tfInput.setText("0");
+        tfInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfInputActionPerformed(evt);
+            }
+        });
 
-        jTextField1.setEditable(false);
-        jTextField1.setText("Ievadiet summu EUR : ");
+        tfIevadietSummu.setEditable(false);
+        tfIevadietSummu.setText("Ievadiet summu EUR : ");
 
         tfPercentage.setEditable(false);
         tfPercentage.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tfPercentage.setText("0");
 
         tfKomisija.setEditable(false);
-        tfKomisija.setText("Komisijas maksa 1% :");
+        tfKomisija.setText("Komisijas maksa 1% (EUR) :");
 
-        btnOutput.setEditable(false);
-        btnOutput.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnOutput.setText("0");
+        tfOutput.setEditable(false);
+        tfOutput.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tfOutput.setText("0");
+        tfOutput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfOutputActionPerformed(evt);
+            }
+        });
 
         tfSumma.setEditable(false);
         tfSumma.setText("Summa USD:");
@@ -63,14 +73,14 @@ public class ValutasMainaKabata extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+                    .addComponent(tfIevadietSummu, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
                     .addComponent(tfKomisija)
                     .addComponent(tfSumma))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(tfInput, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
                     .addComponent(tfPercentage)
-                    .addComponent(btnOutput))
+                    .addComponent(tfOutput))
                 .addGap(154, 154, 154))
         );
         layout.setVerticalGroup(
@@ -78,7 +88,7 @@ public class ValutasMainaKabata extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(3, 3, 3)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfIevadietSummu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfInput, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -86,7 +96,7 @@ public class ValutasMainaKabata extends javax.swing.JFrame {
                     .addComponent(tfKomisija, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnOutput, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfOutput, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfSumma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(165, Short.MAX_VALUE))
         );
@@ -94,9 +104,31 @@ public class ValutasMainaKabata extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void tfInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfInputActionPerformed
+    
+        String strSk = tfInput.getText();
+        double dblSk = Integer.parseInt(strSk);
+        double sum;
+        double sum2;
+        sum = dblSk * 0.01;
+        sum2 = dblSk - sum * 1.10290;
+        tfPercentage.setText(String.valueOf(sum));
+        tfOutput.setText(String.valueOf(sum2));
+        tfOutput.setText(String.format("%.2f", sum2));
+//        System.out.println(String.format("%.2f", sum2));
+    }//GEN-LAST:event_tfInputActionPerformed
+
+    private void tfOutputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfOutputActionPerformed
+//      nevajadzēja taisīt
+    }//GEN-LAST:event_tfOutputActionPerformed
+
     /**
      * @param args the command line arguments
      */
+
+
+        
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -130,10 +162,10 @@ public class ValutasMainaKabata extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField btnOutput;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField tfIevadietSummu;
     private javax.swing.JTextField tfInput;
     private javax.swing.JTextField tfKomisija;
+    private javax.swing.JTextField tfOutput;
     private javax.swing.JTextField tfPercentage;
     private javax.swing.JTextField tfSumma;
     // End of variables declaration//GEN-END:variables
